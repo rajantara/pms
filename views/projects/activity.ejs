@@ -1,0 +1,56 @@
+<%- include('../partials/sidebar.ejs') %>
+
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="container-fluid">
+        <div class="chartjs-size-monitor-expand"
+            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+        </div>
+        <div class="chartjs-size-monitor-shrink"
+            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+        </div>
+        <br>
+        <h2 class="text-center"> <%= title %> <small class="text-muted">#<%= result.projectid %> <%= result.name %>
+            </small>
+        </h2>
+        <hr>
+        <br>
+
+        <form action="">
+            <div class="row">
+                <% activitydate.forEach((item) => { %>
+                    <div class="col-6">
+                        <div class="card shadow-sm mb-3" style="max-width: 60rem;">
+                            <div class="card-header">
+                                <h5><%= item.date %></h5>
+                            </div>
+                            <% item.data.forEach((list) => { %>
+                        <div class="card-body">
+                            <p class="card-text" style="font-size: medium;">
+                                <strong><%= list.title %></strong> - <%= list.description %>
+                                <br>
+                                Author: <%= list.nama %>
+                            </p>
+                            <p class="card-text">
+                                <strong>
+                                    <span class="badge badge-pill badge-info" style="font-size: small;"> <%= list.dateactivity %>
+                                    </span>
+                                </strong>
+                                <strong>
+                                    <span class="badge badge-pill badge-warning" style="font-size: small;"><%= list.timeactivity %></span>
+                                </strong>
+                            </p>
+                            <hr>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </form>
+
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</main>
