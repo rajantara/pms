@@ -9,4 +9,3 @@ Tech stacks:
 4. Bootstrap
 5. EJS
 
-Check out the feature at https://pms-romian.herokuapp.com/
